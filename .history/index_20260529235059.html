@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Rubik+Storm&family=Rubik:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Brayan Espinoza | Full Stack Developer</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="logo-container">
+          <p class="logo">BRAYAN <span>ESPINOZA</span></p>
+        </div>
+        <ul class="links">
+          <li><a class="link" href="#inicio">Inicio</a></li>
+          <li><a class="link" href="#habilidades">Habilidades</a></li>
+          <li><a class="link" href="#proyectos">Proyectos</a></li>
+          <li><a class="link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="description" id="inicio">
+        <h1 class="header-title">Brayan</h1>
+        <p class="my-description">Engineer + Full Stack Web Developer</p>
+        <div class="cta-container">
+          <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
+          <a href="#contacto" class="btn-secondary">Contáctame</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="habilidades">
+      <h2 class="section-title">Habilidades <span>Técnicas</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Backend</h3>
+          <p>PHP, Laravel, Node.js, MySQL</p>
+        </div>
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <p>JavaScript, React, HTML5, CSS3</p>
+        </div>
+        <div class="skill-card">
+          <h3>Herramientas</h3>
+          <p>Git, Postman, REST APIs, SCRUM</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proyectos">
+      <h2 class="section-title">Proyectos <span>Destacados</span></h2>
+
+      <div class="carousel-container">
+        <button class="carousel-btn prev" id="prevBtn">&#10094;</button>
+
+        <div class="carousel-track-container">
+          <ul class="carousel-track" id="track">
+            <!-- Proyecto 1: Nexacontrol -->
+            <li class="project-card">
+              <img src="assets/nexa1.jpg" alt="Nexacontrol Dashboard" />
+              <div class="project-info">
+                <h3>Nexacontrol SaaS</h3>
+                <p>Gestión de RRHH y automatización de nómina.</p>
+                <div class="tech-tags">
+                  <span>Laravel</span><span>MySQL</span><span>React</span>
+                </div>
+                <a href="#" class="link-btn">Ver Proyecto</a>
+              </div>
+            </li>
+
+            <!-- Proyecto 2: Freelance / Otro -->
+            <li class="project-card">
+              <img src="assets/project2.jpg" alt="Sistema Administrativo" />
+              <div class="project-info">
+                <h3>Sistema Admin</h3>
+                <p>Control de inventarios para PyMEs.</p>
+                <div class="tech-tags">
+                  <span>PHP</span><span>JS</span><span>CSS</span>
+                </div>
+                <a href="#" class="link-btn">Ver Proyecto</a>
+              </div>
+            </li>
+
+            <!-- Proyecto 3: Ejemplo -->
+            <li class="project-card">
+              <img src="assets/project3.jpg" alt="API Rest" />
+              <div class="project-info">
+                <h3>API REST Ecommerce</h3>
+                <p>Backend robusto para tienda en línea.</p>
+                <div class="tech-tags">
+                  <span>Node.js</span><span>Express</span>
+                </div>
+                <a href="#" class="link-btn">Ver Proyecto</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <button class="carousel-btn next" id="nextBtn">&#10095;</button>
+      </div>
+    </section>
+
+    <footer class="section" id="contacto">
+      <h2 class="section-title">¿Listo para <span>trabajar?</span></h2>
+      <p>Actualmente busco nuevas oportunidades como Full Stack Developer.</p>
+      <div class="social-links">
+        <a href="mailto:musicabjhe830@gmail.com">Email</a>
+        <a
+          href="https://www.linkedin.com/in/brayan-espinoza-57191512a"
+          target="_blank"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

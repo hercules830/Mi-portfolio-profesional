@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&family=Rubik+Storm&display=swap"
+      rel="stylesheet"
+    />
+    <title>Brayan Espinoza | Full Stack Developer</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="logo-container">
+          <p class="logo">BRAYAN <span>ESPINOZA</span></p>
+        </div>
+        <ul class="links">
+          <li><a class="link" href="#inicio">Inicio</a></li>
+          <li><a class="link" href="#habilidades">Habilidades</a></li>
+          <li><a class="link" href="#proyectos">Proyectos</a></li>
+          <li><a class="link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="description" id="inicio">
+        <h1 class="header-title">Brayan</h1>
+        <p class="my-description">Engineer + Full Stack Web Developer</p>
+        <div class="cta-container">
+          <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
+          <a href="#contacto" class="btn-secondary">Contáctame</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="habilidades">
+      <h2 class="section-title">Habilidades <span>Técnicas</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Backend</h3>
+          <p>PHP (Laravel & Vanilla), Node.js, MySQL, Eloquent, REST APIs</p>
+        </div>
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <p>JavaScript (ES6+), React, HTML5, CSS3, Tailwind</p>
+        </div>
+        <div class="skill-card">
+          <h3>Herramientas</h3>
+          <p>Git, Postman, SCRUM, arquitectura de bases de datos</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proyectos">
+      <h2 class="section-title">Portafolio de <span>Proyectos</span></h2>
+
+      <!-- 1. NEXACONTROL -->
+      <div class="featured-project">
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/indexNexa.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/panelJefeAreaNexa.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/indexNexaPhone.png"
+            class="img-phone zoomable"
+          />
+        </div>
+        <div class="featured-info">
+          <span class="tag">SaaS Ecosystem</span>
+          <h3>Nexacontrol</h3>
+          <p>
+            Sistema integral para gestión de capital humano y horarios.
+            Automatización de nómina y asistencia.
+          </p>
+          <div class="tech-stack">
+            <span>Laravel</span><span>MySQL</span><span>JS</span>
+          </div>
+          <div class="actions">
+            <a
+              href="https://nexacontrolapp.com"
+              target="_blank"
+              class="btn-primary"
+              >Visitar Sitio</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. CUYUCH -->
+      <div class="featured-project reverse">
+        <div class="featured-info">
+          <span class="tag">Vanilla PHP System</span>
+          <h3>Extracurriculares Cuyuch</h3>
+          <p>
+            ERP personalizado para administración empresarial con reportes
+            gráficos y fichas técnicas.
+          </p>
+          <div class="tech-stack">
+            <span>PHP</span><span>phpMyAdmin</span><span>Charts.js</span>
+          </div>
+          <div class="actions">
+            <a
+              href="https://www.extracurricularescuyuch.com/"
+              target="_blank"
+              class="btn-primary"
+              >Visitar Sitio</a
+            >
+          </div>
+        </div>
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/indexCuyuch.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/panelCuyuch.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/graficaCuyuch.png"
+            class="img-phone zoomable"
+          />
+          <img
+            src="assets/img/projects/fichaCuyuch.png"
+            style="display: none"
+            class="zoomable"
+          />
+        </div>
+      </div>
+
+      <!-- 3. MOBILIARIO V1 -->
+      <div class="featured-project">
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/headMobiliario1.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/agentesMobiliario1.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/contactoMobiliario1.png"
+            class="img-phone zoomable"
+          />
+          <img
+            src="assets/img/projects/propiedadesMobiliario1.png"
+            style="display: none"
+            class="zoomable"
+          />
+        </div>
+        <div class="featured-info">
+          <span class="tag">Real Estate UI</span>
+          <h3>Mobiliario v1</h3>
+          <p>
+            Catálogo inmobiliario enfocado en agentes y propiedades destacadas.
+          </p>
+          <div class="tech-stack"><span>HTML</span><span>CSS</span></div>
+        </div>
+      </div>
+
+      <!-- 4. MOBILIARIO V2 -->
+      <div class="featured-project reverse">
+        <div class="featured-info">
+          <span class="tag">Real Estate UI</span>
+          <h3>Mobiliario v2</h3>
+          <p>
+            Diseño centrado en galerías de propiedades y sección de comodidades.
+          </p>
+          <div class="tech-stack"><span>Flexbox</span><span>Grid</span></div>
+        </div>
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/headMobiliario2.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/galleryMobiliario2.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/comodidadesMobiliario2.png"
+            class="img-phone zoomable"
+          />
+          <img
+            src="assets/img/projects/footerMobiliario2.png"
+            style="display: none"
+            class="zoomable"
+          />
+        </div>
+      </div>
+
+      <!-- 5. MOBILIARIO V3 -->
+      <div class="featured-project">
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/headMobiliario3.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/proyectoMobiliario3.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/modelosMobiliario3.png"
+            class="img-phone zoomable"
+          />
+          <img
+            src="assets/img/projects/galleryMobiliario3.png"
+            style="display: none"
+            class="zoomable"
+          />
+          <img
+            src="assets/img/projects/contactoMobiliario3.png"
+            style="display: none"
+            class="zoomable"
+          />
+        </div>
+        <div class="featured-info">
+          <span class="tag">Real Estate UI</span>
+          <h3>Mobiliario v3</h3>
+          <p>
+            Presentación de modelos de vivienda y contacto directo para
+            proyectos.
+          </p>
+          <div class="tech-stack"><span>RWD</span><span>CSS Moderno</span></div>
+        </div>
+      </div>
+
+      <!-- 6. FESTIVAL -->
+      <div class="featured-project reverse">
+        <div class="featured-info">
+          <span class="tag">Event Landing</span>
+          <h3>Rock & EDM Festival</h3>
+          <p>
+            Sitio interactivo con Lineup, galería y venta de boletos para
+            festivales.
+          </p>
+          <div class="tech-stack">
+            <span>JS</span><span>SASS</span><span>Gulp</span>
+          </div>
+        </div>
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/headFestival.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/bigImageFestival.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/boletosFestival.png"
+            class="img-phone zoomable"
+          />
+          <div style="display: none">
+            <img
+              src="assets/img/projects/galleryFestival.png"
+              class="zoomable"
+            />
+            <img src="assets/img/projects/infoFestival.png" class="zoomable" />
+            <img src="assets/img/projects/linupFestival.png" class="zoomable" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. TRIPLE ESPRESSO -->
+      <div class="featured-project">
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/headTripleExpresso.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/formTripleEspresso.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/phoneTripleEspresso.png"
+            class="img-phone zoomable"
+          />
+        </div>
+        <div class="featured-info">
+          <span class="tag">Bootcamp Project</span>
+          <h3>Triple Espresso</h3>
+          <p>
+            Maquetación responsiva para una cafetería con formularios de pedido.
+          </p>
+          <div class="tech-stack"><span>HTML</span><span>CSS</span></div>
+        </div>
+      </div>
+
+      <!-- 8. FREELANCER -->
+      <div class="featured-project reverse">
+        <div class="featured-info">
+          <span class="tag">Personal Portfolio</span>
+          <h3>Freelancer Portfolio</h3>
+          <p>
+            Diseño de marca personal para servicios profesionales de desarrollo.
+          </p>
+          <div class="tech-stack"><span>HTML</span><span>CSS</span></div>
+        </div>
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/headFreelancer.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/bodyFreelancer.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/phoneFreelancer.png"
+            class="img-phone zoomable"
+          />
+        </div>
+      </div>
+
+      <!-- 9. BLOG DE CAFÉ -->
+      <div class="featured-project">
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/headBlogDeCafé.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/contactoBlogDeCafé.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/phoneBlogDeCafé.png"
+            class="img-phone zoomable"
+          />
+        </div>
+        <div class="featured-info">
+          <span class="tag">Content UI</span>
+          <h3>Blog De Café</h3>
+          <p>
+            Estructura de blog informativa centrada en la lectura y comunidad
+            cafetalera.
+          </p>
+          <div class="tech-stack"><span>CSS</span><span>Layouts</span></div>
+        </div>
+      </div>
+
+      <!-- 10. GUITARLA -->
+      <div class="featured-project reverse">
+        <div class="featured-info">
+          <span class="tag">E-commerce UI</span>
+          <h3>GuitarLA</h3>
+          <p>
+            Tienda virtual de guitarras con catálogo detallado y carrito de
+            compras.
+          </p>
+          <div class="tech-stack"><span>Flexbox</span><span>JS</span></div>
+        </div>
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/headGuitar.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/phoneGuitar.png"
+            class="img-phone zoomable"
+          />
+        </div>
+      </div>
+
+      <!-- 11. TECH STORE -->
+      <div class="featured-project">
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/headStore.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/nosotrosStore.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/phoneStore.png"
+            class="img-phone zoomable"
+          />
+        </div>
+        <div class="featured-info">
+          <span class="tag">E-commerce UI</span>
+          <h3>Tech Store</h3>
+          <p>
+            Front-end para tienda de tecnología con diseño limpio y moderno.
+          </p>
+          <div class="tech-stack">
+            <span>CSS Grid</span><span>Responsive</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. MINI APPS -->
+      <div class="featured-project reverse">
+        <div class="featured-info">
+          <span class="tag">Logic & DOM</span>
+          <h3>JS Mini-Apps</h3>
+          <p>
+            Colección de herramientas: Calculadora, App de Clima, Buscador de
+            Películas y el juego Snake.
+          </p>
+          <div class="tech-stack">
+            <span>JS Puro</span><span>API Fetch</span>
+          </div>
+        </div>
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/juegoSnake.png"
+            class="img-lead zoomable"
+          />
+          <img
+            src="assets/img/projects/calculadora.png"
+            class="img-panel zoomable"
+          />
+          <img
+            src="assets/img/projects/appClima.png"
+            class="img-phone zoomable"
+          />
+          <img
+            src="assets/img/projects/buscadorPelícula.png"
+            style="display: none"
+            class="zoomable"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL PARA ZOOM (Lightbox) -->
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="imgFull" />
+    </div>
+
+    <footer class="section" id="contacto">
+      <h2 class="section-title">
+        ¿Listo para el <span>siguiente nivel?</span>
+      </h2>
+      <div class="social-links">
+        <a href="mailto:musicabjhe830@gmail.com" class="btn-secondary">Email</a>
+        <a
+          href="https://www.linkedin.com/in/brayan-espinoza-57191512a"
+          target="_blank"
+          class="btn-secondary"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

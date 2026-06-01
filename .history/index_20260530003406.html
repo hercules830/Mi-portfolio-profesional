@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&family=Rubik+Storm&display=swap"
+      rel="stylesheet"
+    />
+    <title>Brayan Espinoza | Full Stack Developer</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="logo-container">
+          <p class="logo">BRAYAN <span>ESPINOZA</span></p>
+        </div>
+        <ul class="links">
+          <li><a class="link" href="#inicio">Inicio</a></li>
+          <li><a class="link" href="#habilidades">Habilidades</a></li>
+          <li><a class="link" href="#proyectos">Proyectos</a></li>
+          <li><a class="link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="description" id="inicio">
+        <h1 class="header-title">Brayan</h1>
+        <p class="my-description">Engineer + Full Stack Web Developer</p>
+        <div class="cta-container">
+          <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
+          <a href="#contacto" class="btn-secondary">Contáctame</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECCIÓN HABILIDADES -->
+    <section class="section" id="habilidades">
+      <h2 class="section-title">Habilidades <span>Técnicas</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Backend</h3>
+          <p>PHP, Laravel, Node.js, MySQL, Eloquent ORM, REST APIs</p>
+        </div>
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <p>JavaScript (ES6+), React, HTML5, CSS3, Tailwind</p>
+        </div>
+        <div class="skill-card">
+          <h3>Herramientas</h3>
+          <p>Git, Postman, SCRUM, Linux, AWS 기초</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN PROYECTOS -->
+    <section class="section" id="proyectos">
+      <h2 class="section-title">Proyecto <span>Principal</span></h2>
+
+      <!-- PROYECTO DESTACADO: NEXACONTROL -->
+      <div class="featured-project">
+        <div class="featured-img-container">
+          <img
+            src="assets/img/projects/panelJefeAreaNexa.png"
+            alt="Nexacontrol Panel"
+            class="img-lead"
+          />
+          <img
+            src="assets/img/projects/indexNexaPhone.png"
+            alt="Nexacontrol Mobile"
+            class="img-overlay"
+          />
+        </div>
+
+        <div class="featured-info">
+          <span class="tag">SaaS / Full Stack Product</span>
+          <h3>Nexacontrol</h3>
+          <p>
+            Plataforma integral de gestión de capital humano. Automatiza
+            cálculos de legislación laboral, control de asistencia y flujos de
+            aprobación para RRHH.
+          </p>
+          <div class="tech-stack">
+            <span>Laravel 10</span><span>MySQL</span><span>React</span
+            ><span>Architecture</span>
+          </div>
+          <div class="actions">
+            <a
+              href="https://nexacontrolapp.com"
+              target="_blank"
+              class="btn-primary"
+              >Visitar Sitio</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- CARRUSEL OTROS PROYECTOS -->
+      <h3 class="sub-title">Otros <span>Trabajos</span></h3>
+      <div class="carousel-container">
+        <button class="carousel-btn prev" id="prevBtn">&#10094;</button>
+        <div class="carousel-track-container">
+          <ul class="carousel-track" id="track">
+            <li class="project-card">
+              <img
+                src="assets/img/projects/indexNexa.png"
+                alt="Portfolio Preview"
+              />
+              <div class="project-info">
+                <h3>Este Portafolio</h3>
+                <p>
+                  Desarrollo frontend moderno enfocado en performance y
+                  transiciones.
+                </p>
+                <div class="tech-tags">
+                  <span>HTML</span><span>CSS</span><span>JS</span>
+                </div>
+              </div>
+            </li>
+            <li class="project-card">
+              <div class="placeholder-img">Freelance Project</div>
+              <div class="project-info">
+                <h3>Sistema Admin</h3>
+                <p>Gestión de inventarios personalizada para cliente local.</p>
+                <div class="tech-tags"><span>PHP</span><span>MySQL</span></div>
+              </div>
+            </li>
+            <li class="project-card">
+              <div class="placeholder-img">Próximamente</div>
+              <div class="project-info">
+                <h3>API REST v2</h3>
+                <p>Estructura escalable para ecommerce con Node.js.</p>
+                <div class="tech-tags">
+                  <span>Node</span><span>Express</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button class="carousel-btn next" id="nextBtn">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- FOOTER / CONTACTO -->
+    <footer class="section" id="contacto">
+      <h2 class="section-title">
+        ¿Hablamos de tu <span>próximo proyecto?</span>
+      </h2>
+      <p>Disponible para posiciones Full Stack / Backend Remoto.</p>
+      <div class="social-links">
+        <a href="mailto:musicabjhe830@gmail.com" class="btn-secondary">Email</a>
+        <a
+          href="https://www.linkedin.com/in/brayan-espinoza-57191512a"
+          target="_blank"
+          class="btn-secondary"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
