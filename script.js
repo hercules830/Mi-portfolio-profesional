@@ -26,46 +26,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // 2. LÓGICA DE REVELADO (INTERSECTION OBSERVER) MEJORADA
-  const items = document.querySelectorAll(
-    ".section-title, .featured-project, .skill-card"
-  );
+  // 2. LÓGICA DE REVELADO (INTERSECTION OBSERVER) RESTAURADA
+  // Seleccionamos los elementos individuales que configuramos en el CSS
+  const items = document.querySelectorAll(".section-title, .featured-project, .skill-card");
 
   const observerOptions = {
-    root: null,
-    threshold: 0.1,
-    // Dejamos el rootMargin en 0px. Los márgenes negativos causan bugs en celulares
-    rootMargin: "0px",
+    // threshold: 0.05 significa que asomando el 5% del proyecto, se activa.
+    // Al ser un valor pequeño, no falla en móviles y se ve natural en PC.
+    threshold: 0.05,
+    // Le regresamos el -50px para que haya ese margen visual bonito antes de que aparezcan
+    rootMargin: "0px 0px -50px 0px",
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+      // Si el elemento cruza el umbral definido
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
+        // Dejamos de observarlo para que no se vuelva a animar al subir
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
+  // Le asignamos el observador a cada elemento
   items.forEach((item) => {
     observer.observe(item);
   });
-
-  // 3. FIX A PRUEBA DE FALLOS PARA MOVILES (FALLBACK)
-  const forceReveal = () => {
-    items.forEach((item) => {
-      const rect = item.getBoundingClientRect();
-      // Si el elemento asoma en pantalla (incluso un poco), forzamos que aparezca
-      if (rect.top < window.innerHeight + 150) {
-        item.classList.add("visible");
-      }
-    });
-  };
-
-  // Ejecutamos el parche al cargar
-  forceReveal();
-  setTimeout(forceReveal, 500);
-
-  // EVENTO DE RESPALDO: Si el Observer falla en el celular, el simple hecho de scrollear lo revelará.
-  window.addEventListener("scroll", forceReveal, { passive: true });
 });
