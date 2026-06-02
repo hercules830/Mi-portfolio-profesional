@@ -13,13 +13,16 @@
   scroll-behavior: smooth;
 }
 
-html,
-body {
-  width: 100%;
-  overflow-x: hidden;
+/* FIX CRÍTICO: Separar html y body para que el IntersectionObserver no se rompa */
+html {
   background-color: var(--dark-bg);
   color: var(--text-white);
   font-family: "Rubik", sans-serif;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* --- HEADER --- */
@@ -138,7 +141,7 @@ body {
   color: var(--primary-red);
 }
 
-/* --- PROYECTOS (ESTILO ORIGINAL GRID Y REVERSE) --- */
+/* --- PROYECTOS --- */
 .featured-project {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -189,7 +192,6 @@ body {
   cursor: pointer;
 }
 
-/* Inversión de imágenes (Tus estilos reverse originales) */
 .reverse .img-lead {
   margin-left: auto;
 }
@@ -223,31 +225,30 @@ body {
   font-size: 0.75rem;
 }
 
-/* --- FIX DE VISIBILIDAD PARA PROYECTOS --- */
-/* 1. FUERZA A QUE EL CONTENEDOR PRINCIPAL NUNCA SEA INVISIBLE */
-.section {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
+/* =========================================
+   ANIMACIONES (INTERSECTION OBSERVER)
+========================================= */
 
-/* 2. SOLO OCULTAMOS LOS ELEMENTOS INTERNOS PARA ANIMARLOS */
+/* Estado inicial: Oculto y desplazado hacia abajo */
 .section-title,
 .featured-project,
 .skill-card {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform; /* Mejora el rendimiento en celulares */
+  /* Aseguramos que la transición aplique tanto al aparecer como al quitar el mouse (hover) */
+  transition: opacity 0.8s ease-out, transform 0.3s ease-out;
+  will-change: opacity, transform;
 }
 
-/* 3. CLASE QUE AGREGA EL JAVASCRIPT PARA MOSTRARLOS */
+/* Estado final: Visible y en su lugar (¡SIN !important para liberar el Hover!) */
 .section-title.visible,
 .featured-project.visible,
 .skill-card.visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+  opacity: 1;
+  transform: translateY(0);
 }
+
+/* ========================================= */
 
 /* --- FOOTER CENTRADO --- */
 #contacto {
@@ -301,12 +302,9 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
-
   .link {
     font-size: 0.85rem;
   }
-
-  /* CONTENIDO */
   .description {
     padding-left: 5%;
     padding-right: 5%;
@@ -318,8 +316,6 @@ body {
   .header-title {
     font-size: 3.5rem;
   }
-
-  /* PROYECTOS EN CELULAR */
   .featured-project,
   .featured-project.reverse {
     grid-template-columns: 1fr;
@@ -343,4 +339,36 @@ body {
   .reverse .img-phone {
     left: 5%;
   }
+}
+
+/* =========================================
+   EFECTOS HOVER (PC)
+========================================= */
+
+/* Hover para las tarjetas de Habilidades */
+.skill-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 10px 30px rgba(255, 60, 60, 0.15);
+}
+
+/* Hover para las imágenes del Proyecto */
+.featured-project:hover .img-lead {
+  transform: scale(1.02);
+  border-color: var(--primary-red);
+}
+
+.featured-project:hover .img-panel {
+  opacity: 1;
+  filter: blur(0); /* Quita el difuminado al pasar el mouse */
+  transform: translateX(-10px) translateY(-10px);
+  z-index: 4;
+}
+
+.featured-project:hover .img-phone {
+  transform: translateY(-15px) scale(1.05);
+}
+
+/* Para los proyectos invertidos (reverse) */
+.featured-project.reverse:hover .img-panel {
+  transform: translateX(10px) translateY(-10px);
 }
