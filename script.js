@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Lógica del Modal (Zoom de Imágenes)
+  // 1. Lógica del Modal (Zoom)
   const modal = document.getElementById("imageModal");
   const modalImg = document.getElementById("imgFull");
   const span = document.querySelector(".close");
@@ -16,12 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target == modal) modal.style.display = "none";
   };
 
-  // 2. Lógica de Revelado Automático (Intersection Observer)
-  const items = document.querySelectorAll(".section, .featured-project");
-
+  // 2. Lógica de Revelado (Intersection Observer)
   const observerOptions = {
-    threshold: 0.1, // Se activa apenas entra un 10% del elemento
-    rootMargin: "0px 0px -50px 0px", // Se activa un poco antes de llegar para fluidez
+    threshold: 0.1, // Se activa apenas asoma el 10% del elemento
+    rootMargin: "0px 0px -50px 0px",
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -32,16 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, observerOptions);
 
-  items.forEach((item) => observer.observe(item));
+  document.querySelectorAll(".section, .featured-project").forEach((el) => {
+    observer.observe(el);
+  });
 
-  // 3. FIX CRÍTICO PARA CELULARES:
-  // Algunos navegadores móviles no disparan el Observer hasta que hay interacción.
-  // Esto fuerza un "refresh" visual que activa las animaciones automáticamente.
+  // 3. Fix para Celulares (Forzar detección al cargar)
+  // Esto hace que las primeras secciones aparezcan solas sin tocar la pantalla
   setTimeout(() => {
     window.dispatchEvent(new Event("scroll"));
-    // Si aún no se ve nada en 1 segundo (por seguridad), mostramos las secciones superiores
-    items.forEach((item, index) => {
-      if (index < 2) item.classList.add("visible");
-    });
-  }, 300);
+  }, 500);
 });

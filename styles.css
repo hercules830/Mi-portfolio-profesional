@@ -13,7 +13,6 @@
   scroll-behavior: smooth;
 }
 
-/* Evitar desbordes en celular */
 html,
 body {
   width: 100%;
@@ -34,6 +33,8 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* NAVBAR DESKTOP */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -201,18 +202,6 @@ body {
   right: auto;
 }
 
-.featured-project:hover .img-lead {
-  transform: translateX(-10px);
-}
-.featured-project:hover .img-panel {
-  opacity: 1;
-  filter: blur(0);
-  transform: translate(10px, -10px);
-}
-.featured-project:hover .img-phone {
-  transform: scale(1.1);
-}
-
 .tag {
   color: var(--primary-red);
   font-weight: bold;
@@ -253,7 +242,7 @@ body {
 }
 .social-links {
   display: flex;
-  justify-content: center; /* ESTO CENTRA EL FOOTER */
+  justify-content: center;
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -286,15 +275,24 @@ body {
   cursor: pointer;
 }
 
-/* --- RESPONSIVE CELULAR (FULL RESPONSIVE) --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 1000px) {
+  /* NAVBAR ADAPTADO PARA CELULAR */
   .nav {
-    justify-content: center;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 5%;
   }
   .links {
-    gap: 1rem;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
+  .link {
+    font-size: 0.85rem;
+  }
+
+  /* CONTENIDO */
   .description {
     padding-left: 5%;
     padding-right: 5%;
@@ -307,10 +305,11 @@ body {
     font-size: 3.5rem;
   }
 
+  /* PROYECTOS EN CELULAR */
   .featured-project,
   .featured-project.reverse {
-    grid-template-columns: 1fr; /* Pasa a una columna */
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
     margin-bottom: 6rem;
   }
   .featured-img-container {
