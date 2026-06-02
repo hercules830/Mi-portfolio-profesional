@@ -223,17 +223,19 @@ body {
   font-size: 0.75rem;
 }
 
-/* --- EFECTO DE MOVIMIENTO (REVEAL) --- */
+/* FIX DE VISIBILIDAD PARA PROYECTOS */
 .section,
 .featured-project {
   opacity: 0;
   transform: translateY(50px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  visibility: visible; /* Asegura que el navegador lo tome en cuenta */
 }
+
 .section.visible,
 .featured-project.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 /* --- FOOTER CENTRADO --- */
@@ -275,20 +277,18 @@ body {
   cursor: pointer;
 }
 
-/* --- RESPONSIVE --- */
+/* NAVBAR ADAPTADO CON MÁRGENES */
 @media (max-width: 800px) {
   .nav {
-    flex-direction: column; /* Apila el logo y los links verticalmente */
-    gap: 1.5rem; /* Espacio entre el nombre y los enlaces */
-    padding: 1.5rem 8%; /* Margen lateral (ajusta el % según desees) */
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 8%; /* Margen a los lados */
     text-align: center;
   }
-
   .links {
-    gap: 1rem; /* Reduce el espacio entre links para que no se amontonen */
-    flex-wrap: wrap; /* Permite que los links bajen de fila si no caben */
-    justify-content: center; /* Centra los links horizontalmente */
-    width: 100%; /* Asegura que use todo el ancho disponible */
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .link {
