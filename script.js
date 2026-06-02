@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // 2. LÓGICA DE REVELADO (INTERSECTION OBSERVER)
-  // Seleccionamos todas las secciones y los proyectos
-  const items = document.querySelectorAll(".section, .featured-project");
+  // Observamos los títulos, los proyectos y las tarjetas de habilidades individualmente
+  const items = document.querySelectorAll(
+    ".section-title, .featured-project, .skill-card"
+  );
 
   const observerOptions = {
-    // threshold: 0.1 significa que en cuanto asome el 10% del elemento, se activa.
-    // Esto es vital para celulares donde los elementos son muy largos.
-    threshold: 0.1,
+    threshold: 0.1, // Aquí sí puedes dejar 0.1 porque los hijos son pequeños
     rootMargin: "0px 0px -50px 0px",
   };
 
