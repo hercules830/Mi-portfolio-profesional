@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   const observerOptions = {
-    threshold: 0.1, // Aquí sí puedes dejar 0.1 porque los hijos son pequeños
+    threshold: 0, // Aquí sí puedes dejar 0.1 porque los hijos son pequeños
     rootMargin: "0px 0px -50px 0px",
   };
 
