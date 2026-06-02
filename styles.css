@@ -223,15 +223,25 @@ body {
   font-size: 0.75rem;
 }
 
-/* FIX DE VISIBILIDAD PARA PROYECTOS */
+/* --- FIX DE VISIBILIDAD PARA PROYECTOS --- */
+/* 1. FUERZA A QUE EL CONTENEDOR PRINCIPAL NUNCA SEA INVISIBLE */
+.section {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* 2. SOLO OCULTAMOS LOS ELEMENTOS INTERNOS PARA ANIMARLOS */
 .section-title,
 .featured-project,
 .skill-card {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform; /* Mejora el rendimiento en celulares */
 }
 
+/* 3. CLASE QUE AGREGA EL JAVASCRIPT PARA MOSTRARLOS */
 .section-title.visible,
 .featured-project.visible,
 .skill-card.visible {
@@ -283,7 +293,7 @@ body {
   .nav {
     flex-direction: column;
     gap: 1.5rem;
-    padding: 1.5rem 8%; /* Margen a los lados */
+    padding: 1.5rem 8%;
     text-align: center;
   }
   .links {
@@ -293,7 +303,7 @@ body {
   }
 
   .link {
-    font-size: 0.85rem; /* Reduce un poco el tamaño para móviles */
+    font-size: 0.85rem;
   }
 
   /* CONTENIDO */

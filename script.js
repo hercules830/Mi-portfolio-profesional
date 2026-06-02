@@ -26,23 +26,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // 2. LÓGICA DE REVELADO (INTERSECTION OBSERVER)
-  // Observamos los títulos, los proyectos y las tarjetas de habilidades individualmente
+  // 2. LÓGICA DE REVELADO (INTERSECTION OBSERVER) MEJORADA
   const items = document.querySelectorAll(
     ".section-title, .featured-project, .skill-card"
   );
 
   const observerOptions = {
-    threshold: 0, // Aquí sí puedes dejar 0.1 porque los hijos son pequeños
-    rootMargin: "0px 0px -50px 0px",
+    root: null,
+    threshold: 0.1,
+    // Dejamos el rootMargin en 0px. Los márgenes negativos causan bugs en celulares
+    rootMargin: "0px",
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Añadimos la clase .visible que definimos en el CSS
         entry.target.classList.add("visible");
-        // Una vez que aparece, dejamos de observarlo para ahorrar recursos
         observer.unobserve(entry.target);
       }
     });
@@ -52,26 +51,21 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(item);
   });
 
-  // 3. FIX DE SEGURIDAD PARA CELULARES
-  // Algunos navegadores móviles pausan el sensor hasta que detectan movimiento real.
-  // Este código fuerza al navegador a "despertar" y mostrar los proyectos de inmediato.
+  // 3. FIX A PRUEBA DE FALLOS PARA MOVILES (FALLBACK)
   const forceReveal = () => {
     items.forEach((item) => {
       const rect = item.getBoundingClientRect();
-      // Si el elemento ya está en el área visible del celular, forzamos la clase
-      if (rect.top < window.innerHeight) {
+      // Si el elemento asoma en pantalla (incluso un poco), forzamos que aparezca
+      if (rect.top < window.innerHeight + 150) {
         item.classList.add("visible");
       }
     });
   };
 
-  // Ejecutar el fix al cargar y tras un pequeño delay
+  // Ejecutamos el parche al cargar
   forceReveal();
   setTimeout(forceReveal, 500);
 
-  // Truco extra: disparar un pequeño scroll invisible
-  setTimeout(() => {
-    window.scrollTo(window.scrollX, window.scrollY + 1);
-    window.scrollTo(window.scrollX, window.scrollY - 1);
-  }, 300);
+  // EVENTO DE RESPALDO: Si el Observer falla en el celular, el simple hecho de scrollear lo revelará.
+  window.addEventListener("scroll", forceReveal, { passive: true });
 });
