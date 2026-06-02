@@ -2,40 +2,46 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Lógica del Modal (Zoom de Imágenes)
   const modal = document.getElementById("imageModal");
   const modalImg = document.getElementById("imgFull");
-  const span = document.getElementsByClassName("close")[0];
+  const span = document.querySelector(".close");
 
   document.querySelectorAll(".zoomable").forEach((img) => {
     img.onclick = function () {
-      modal.style.display = "block";
+      modal.style.display = "flex";
       modalImg.src = this.src;
     };
   });
 
-  span.onclick = function () {
-    modal.style.display = "none";
+  span.onclick = () => (modal.style.display = "none");
+  modal.onclick = (e) => {
+    if (e.target == modal) modal.style.display = "none";
   };
 
-  modal.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
+  // 2. Lógica de Revelado Automático (Intersection Observer)
+  const items = document.querySelectorAll(".section, .featured-project");
+
+  const observerOptions = {
+    threshold: 0.1, // Se activa apenas entra un 10% del elemento
+    rootMargin: "0px 0px -50px 0px", // Se activa un poco antes de llegar para fluidez
   };
 
-  // 2. Efecto Revelado al hacer Scroll (Intersection Observer)
-  const observerOptions = { threshold: 0.1 };
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
+        entry.target.classList.add("visible");
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll(".section, .featured-project").forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(40px)";
-    el.style.transition = "all 0.8s ease-out";
-    observer.observe(el);
-  });
+  items.forEach((item) => observer.observe(item));
+
+  // 3. FIX CRÍTICO PARA CELULARES:
+  // Algunos navegadores móviles no disparan el Observer hasta que hay interacción.
+  // Esto fuerza un "refresh" visual que activa las animaciones automáticamente.
+  setTimeout(() => {
+    window.dispatchEvent(new Event("scroll"));
+    // Si aún no se ve nada en 1 segundo (por seguridad), mostramos las secciones superiores
+    items.forEach((item, index) => {
+      if (index < 2) item.classList.add("visible");
+    });
+  }, 300);
 });

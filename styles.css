@@ -13,23 +13,19 @@
   scroll-behavior: smooth;
 }
 
-/* 1. EVITAR DOBLE BARRA Y DESBORDAMIENTO HORIZONTAL */
-html {
-  overflow-x: hidden;
-  width: 100%;
-}
-
+/* Evitar desbordes en celular */
+html,
 body {
+  width: 100%;
+  overflow-x: hidden;
   background-color: var(--dark-bg);
   color: var(--text-white);
   font-family: "Rubik", sans-serif;
-  overflow-x: hidden;
-  width: 100%;
 }
 
 /* --- HEADER --- */
 .header {
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(to bottom, transparent 60%, var(--dark-bg) 100%),
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("assets/background.jpg");
@@ -38,15 +34,12 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .nav {
   display: flex;
   justify-content: space-between;
   padding: 2rem 5%;
   align-items: center;
-  flex-wrap: wrap; /* Para que no se salga en móvil */
 }
-
 .logo {
   font-weight: bold;
   letter-spacing: 2px;
@@ -54,7 +47,6 @@ body {
 .logo span {
   color: var(--primary-red);
 }
-
 .links {
   display: flex;
   list-style: none;
@@ -77,14 +69,12 @@ body {
   justify-content: center;
   padding-left: 10%;
 }
-
 .header-title {
   font-family: "Rubik Storm", cursive;
-  font-size: clamp(3rem, 10vw, 8rem); /* Ajustado el mínimo para celular */
+  font-size: clamp(4rem, 10vw, 8rem);
   color: var(--primary-red);
   text-shadow: 0 0 30px rgba(255, 60, 60, 0.4);
 }
-
 .my-description {
   font-size: 1.5rem;
   color: var(--gray-text);
@@ -95,7 +85,6 @@ body {
 .cta-container {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 .btn-primary,
 .btn-secondary {
@@ -148,7 +137,7 @@ body {
   color: var(--primary-red);
 }
 
-/* --- SHOWCASE DE PROYECTOS (MANTIENE PC ORIGINAL) --- */
+/* --- PROYECTOS (ESTILO ORIGINAL GRID Y REVERSE) --- */
 .featured-project {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -199,6 +188,7 @@ body {
   cursor: pointer;
 }
 
+/* Inversión de imágenes (Tus estilos reverse originales) */
 .reverse .img-lead {
   margin-left: auto;
 }
@@ -209,6 +199,18 @@ body {
 .reverse .img-phone {
   left: 10%;
   right: auto;
+}
+
+.featured-project:hover .img-lead {
+  transform: translateX(-10px);
+}
+.featured-project:hover .img-panel {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(10px, -10px);
+}
+.featured-project:hover .img-phone {
+  transform: scale(1.1);
 }
 
 .tag {
@@ -232,23 +234,46 @@ body {
   font-size: 0.75rem;
 }
 
-/* --- MODAL --- */
+/* --- EFECTO DE MOVIMIENTO (REVEAL) --- */
+.section,
+.featured-project {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.section.visible,
+.featured-project.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- FOOTER CENTRADO --- */
+#contacto {
+  text-align: center;
+}
+.social-links {
+  display: flex;
+  justify-content: center; /* ESTO CENTRA EL FOOTER */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* --- MODAL (ZOOM) --- */
 .modal {
   display: none;
   position: fixed;
   z-index: 1000;
-  padding-top: 50px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
 }
 .modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 1200px;
+  max-width: 80%;
+  max-height: 80vh;
   border-radius: 10px;
   border: 2px solid var(--primary-red);
 }
@@ -258,28 +283,18 @@ body {
   right: 35px;
   color: #f1f1f1;
   font-size: 40px;
-  font-weight: bold;
   cursor: pointer;
 }
 
-/* --- FOOTER CENTRADO --- */
-.social-links {
-  display: flex;
-  justify-content: center; /* Centrado horizontal */
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-/* --- AJUSTES FULL RESPONSIVE PARA CELULAR --- */
+/* --- RESPONSIVE CELULAR (FULL RESPONSIVE) --- */
 @media (max-width: 1000px) {
   .nav {
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   .links {
     gap: 1rem;
   }
-
   .description {
     padding-left: 5%;
     padding-right: 5%;
@@ -288,15 +303,18 @@ body {
   .cta-container {
     justify-content: center;
   }
+  .header-title {
+    font-size: 3.5rem;
+  }
 
   .featured-project,
   .featured-project.reverse {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Pasa a una columna */
     gap: 2rem;
     margin-bottom: 6rem;
   }
   .featured-img-container {
-    height: 300px; /* Reducido para que entre en el viewport y el JS lo detecte */
+    height: 280px;
     order: -1;
   }
   .featured-info {
@@ -305,39 +323,11 @@ body {
   .tech-stack {
     justify-content: center;
   }
-
-  .img-lead {
-    width: 90%;
-  }
-  .img-panel {
-    width: 60%;
-  }
   .img-phone {
-    width: 100px;
+    width: 90px;
     right: 5%;
   }
   .reverse .img-phone {
     left: 5%;
-  }
-}
-
-@media (max-width: 600px) {
-  .header-title {
-    font-size: 3.5rem;
-  }
-  .my-description {
-    font-size: 1.2rem;
-  }
-  .section {
-    padding: 4rem 5%;
-  }
-  .nav {
-    padding: 1.5rem 5%;
-  }
-  .links {
-    gap: 0.8rem;
-  }
-  .link {
-    font-size: 0.8rem;
   }
 }
