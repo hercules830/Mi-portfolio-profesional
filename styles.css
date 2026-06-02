@@ -276,20 +276,23 @@ body {
 }
 
 /* --- RESPONSIVE --- */
-@media (max-width: 1000px) {
-  /* NAVBAR ADAPTADO PARA CELULAR */
+@media (max-width: 800px) {
   .nav {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem 5%;
+    flex-direction: column; /* Apila el logo y los links verticalmente */
+    gap: 1.5rem; /* Espacio entre el nombre y los enlaces */
+    padding: 1.5rem 8%; /* Margen lateral (ajusta el % según desees) */
+    text-align: center;
   }
+
   .links {
-    gap: 1.2rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 1rem; /* Reduce el espacio entre links para que no se amontonen */
+    flex-wrap: wrap; /* Permite que los links bajen de fila si no caben */
+    justify-content: center; /* Centra los links horizontalmente */
+    width: 100%; /* Asegura que use todo el ancho disponible */
   }
+
   .link {
-    font-size: 0.85rem;
+    font-size: 0.85rem; /* Reduce un poco el tamaño para móviles */
   }
 
   /* CONTENIDO */
