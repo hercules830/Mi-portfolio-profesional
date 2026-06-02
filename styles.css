@@ -6,7 +6,7 @@
   --gray-text: #b3b3b3;
 }
 
-/* --- RESET Y GLOBALES --- */
+/* --- RESET TOTAL --- */
 * {
   margin: 0;
   padding: 0;
@@ -17,21 +17,59 @@
 html,
 body {
   width: 100%;
-  overflow-x: hidden; /* Evita el scroll horizontal */
-}
-
-body {
+  max-width: 100%;
+  overflow-x: hidden; /* Prohibido el scroll horizontal */
   background-color: var(--dark-bg);
   color: var(--text-white);
   font-family: "Rubik", sans-serif;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* --- HEADER --- */
+/* --- NAVEGACIÓN (Arregla lo que se ve en tu foto) --- */
+.nav {
+  display: flex;
+  flex-direction: column; /* Apilar en móvil por defecto */
+  align-items: center;
+  padding: 1.5rem 1rem;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 5%;
+  }
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  flex-wrap: wrap; /* Si no caben, bajan */
+  justify-content: center;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* --- HEADER / HERO --- */
 .header {
   min-height: 100vh;
   background: linear-gradient(to bottom, transparent 60%, var(--dark-bg) 100%),
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url("assets/background.jpg");
   background-size: cover;
   background-position: center;
@@ -39,69 +77,42 @@ body {
   flex-direction: column;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem 5%;
-  align-items: center;
-  width: 100%;
-}
-
-.logo {
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 1.2rem;
-}
-
-.logo span {
-  color: var(--primary-red);
-}
-
-.links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-.link {
-  color: white;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: 0.3s;
-}
-
-.link:hover {
-  color: var(--primary-red);
-}
-
 .description {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 10%;
+  padding: 0 5%;
+  text-align: center;
 }
 
 .header-title {
   font-family: "Rubik Storm", cursive;
-  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-size: clamp(3rem, 15vw, 7rem); /* Tamaño fluido pero controlado */
   color: var(--primary-red);
-  text-shadow: 0 0 30px rgba(255, 60, 60, 0.4);
-  line-height: 1.1;
+  line-height: 1;
   margin-bottom: 1rem;
+  word-break: break-word;
 }
 
 .my-description {
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-size: 1.1rem;
   color: var(--gray-text);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-/* --- BOTONES --- */
 .cta-container {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  flex-wrap: wrap;
+  align-items: center;
+}
+
+@media (min-width: 480px) {
+  .cta-container {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .btn-primary,
@@ -109,328 +120,128 @@ body {
   padding: 1rem 2rem;
   text-decoration: none;
   border-radius: 5px;
-  transition: 0.3s;
-  display: inline-block;
+  width: 100%;
+  max-width: 250px;
   text-align: center;
-  font-weight: 500;
+  display: inline-block;
 }
 
 .btn-primary {
   background: var(--primary-red);
   color: white;
-  border: 1px solid var(--primary-red);
 }
-
 .btn-secondary {
   border: 1px solid white;
   color: white;
 }
 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255, 60, 60, 0.3);
-}
-
 /* --- SECCIONES --- */
 .section {
-  padding: 8rem 10%;
+  padding: 5rem 5%;
+  width: 100%;
+  overflow: hidden; /* Importante para que las imágenes no empujen el ancho */
 }
 
 .section-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: 4rem;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
   text-align: center;
-}
-
-.section-title span {
-  color: var(--primary-red);
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .skill-card {
   background: var(--card-bg);
-  padding: 2.5rem;
-  border-radius: 15px;
-  border-left: 5px solid var(--primary-red);
-  transition: 0.3s;
+  padding: 2rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-red);
 }
 
-.skill-card h3 {
-  margin-bottom: 1rem;
-  color: var(--primary-red);
-}
-
-/* --- SHOWCASE DE PROYECTOS --- */
+/* --- PROYECTOS (ELIMINANDO POSICIONES ABSOLUTAS EN MÓVIL) --- */
 .featured-project {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
-  margin-bottom: 12rem;
-  align-items: center;
-}
-
-.featured-project.reverse {
-  grid-template-columns: 1fr 1.2fr;
+  margin-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .featured-img-container {
   position: relative;
-  height: 400px;
-  display: flex;
-  align-items: center;
   width: 100%;
-}
-
-.img-lead,
-.img-panel,
-.img-phone {
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.5s;
+  height: auto;
+  min-height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .img-lead {
-  width: 80%;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  width: 90%;
+  border-radius: 8px;
   z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .img-panel {
+  width: 60%;
   position: absolute;
-  top: 0;
   right: 0;
-  width: 65%;
-  z-index: 1;
-  opacity: 0.5;
-  filter: blur(1px);
-}
-
-.img-phone {
-  position: absolute;
-  bottom: -20px;
-  right: 5%;
-  width: 120px;
-  z-index: 3;
-  border: 4px solid var(--dark-bg);
-  box-shadow: 0 10px 30px rgba(255, 60, 60, 0.4);
-}
-
-/* Inversión de imágenes para el modo reverse */
-.reverse .img-lead {
-  margin-left: auto;
-  margin-right: 0;
-}
-.reverse .img-panel {
-  left: 0;
-  right: auto;
-}
-.reverse .img-phone {
-  left: 5%;
-  right: auto;
-}
-
-.featured-project:hover .img-lead {
-  transform: translateX(-10px);
-}
-.featured-project:hover .img-panel {
-  opacity: 1;
-  filter: blur(0);
-  transform: translate(10px, -10px);
-}
-.featured-project:hover .img-phone {
-  transform: scale(1.1);
-}
-
-.tag {
-  color: var(--primary-red);
-  font-weight: bold;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.featured-info h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.tech-stack {
-  margin: 1.5rem 0;
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.tech-stack span {
-  background: rgba(255, 60, 60, 0.1);
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  border: 1px solid var(--primary-red);
-  font-size: 0.75rem;
-}
-
-/* --- MODAL (ZOOM) CORREGIDO --- */
-.modal {
-  display: none; /* Asegura que empiece oculto */
-  position: fixed;
-  z-index: 2000;
-  left: 0;
   top: 0;
+  opacity: 0.3;
+  z-index: 1;
+}
+.img-phone {
+  width: 80px;
+  position: absolute;
+  bottom: -10px;
+  left: 5%;
+  z-index: 3;
+}
+
+@media (min-width: 1000px) {
+  .featured-project {
+    flex-direction: row;
+    align-items: center;
+  }
+  .featured-project.reverse {
+    flex-direction: row-reverse;
+  }
+  .featured-project > div {
+    flex: 1;
+  }
+}
+
+/* --- MODAL --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.95);
-  /* Eliminamos display: flex de aquí para que el display: none funcione */
+  background: rgba(0, 0, 0, 0.9);
   align-items: center;
   justify-content: center;
 }
-
-/* Esta clase la usaremos para mostrarlo desde JS */
 .modal.active {
   display: flex;
 }
-
 .modal-content {
   max-width: 90%;
   max-height: 80vh;
-  border-radius: 10px;
   border: 2px solid var(--primary-red);
-  object-fit: contain;
-  background-color: black; /* Evita que se vea transparente mientras carga */
 }
 
-/* Si la imagen no tiene SRC, que no se vea el borde (el punto rojo) */
-.modal-content[src=""],
-.modal-content:not([src]) {
-  display: none;
+/* --- ANIMACIÓN JS (ESTADO INICIAL) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
 }
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  color: white;
-  font-size: 40px;
-  cursor: pointer;
-  z-index: 2100;
-}
-
-/* --- FOOTER --- */
-footer#contacto {
-  text-align: center;
-  padding-bottom: 8rem;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-/* --- MEDIA QUERIES (RESPONSIVE) --- */
-
-@media (max-width: 1024px) {
-  .section {
-    padding: 6rem 5%;
-  }
-  .featured-project {
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 850px) {
-  .nav {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .links {
-    gap: 1.2rem;
-  }
-
-  .featured-project,
-  .featured-project.reverse {
-    grid-template-columns: 1fr;
-    margin-bottom: 8rem;
-    text-align: center;
-  }
-
-  .featured-img-container {
-    order: -1; /* La imagen siempre arriba en móvil */
-    height: 300px;
-    justify-content: center;
-  }
-
-  .img-lead {
-    width: 75%;
-  }
-  .img-panel {
-    width: 55%;
-  }
-  .img-phone {
-    width: 100px;
-  }
-
-  .tech-stack {
-    justify-content: center;
-  }
-
-  .description {
-    padding: 0 5%;
-    text-align: center;
-  }
-
-  .cta-container {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-title {
-    font-size: 3.5rem;
-  }
-
-  .nav {
-    padding: 1.5rem 5%;
-  }
-
-  .links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.8rem;
-  }
-
-  .link {
-    font-size: 0.8rem;
-  }
-
-  .featured-img-container {
-    height: 220px;
-  }
-
-  .img-phone {
-    width: 70px;
-    bottom: -10px;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%; /* Botones de ancho completo en celulares pequeños */
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .skill-card {
-    padding: 1.5rem;
-  }
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
